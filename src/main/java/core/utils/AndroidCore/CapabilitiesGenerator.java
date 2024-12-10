@@ -30,8 +30,14 @@ public class CapabilitiesGenerator {
         cap.setCapability(MobileCapabilityType.APP, appDir + androidconfig.getProperty("androidapk"));
         cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, "true");
         cap.setCapability(MobileCapabilityType.ACCEPT_INSECURE_CERTS, "true");
-        cap.setCapability(MobileCapabilityType.FULL_RESET, "true");
-        cap.setCapability(MobileCapabilityType.NO_RESET, "false");
+        //cap.setCapability(MobileCapabilityType.FULL_RESET, "true");
+        cap.setCapability(MobileCapabilityType.NO_RESET, "true");
+
+        // Add appPackage and appActivity capabilities using AndroidMobileCapabilityType
+        cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, androidconfig.getProperty("appPackage"));
+        cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, androidconfig.getProperty("appActivity"));
+        cap.setCapability("chromedriverExecutable", "C:/Users/Techlogix-03/Downloads/chromedriver-win64/chromedriver.exe");
+
         return cap;
     }
 }
