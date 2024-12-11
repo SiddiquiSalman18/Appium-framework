@@ -35,6 +35,7 @@ public class CapabilitiesGenerator {
 
         // Add appPackage and appActivity capabilities using AndroidMobileCapabilityType
         cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, androidconfig.getProperty("appPackage"));
+        cap.setCapability("appium:ignoreHiddenApiPolicyError", true);
         cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, androidconfig.getProperty("appActivity"));
         cap.setCapability("chromedriverExecutable", "C:/Users/Techlogix-03/Downloads/chromedriver-win64/chromedriver.exe");
 
