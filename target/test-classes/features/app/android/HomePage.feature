@@ -5,6 +5,7 @@ Feature: Meezan bank App
     Given App should open successfully
     When I enter username and password
     And I click on loginbutton
+    And Handle the location alert
     Then Show balance text is visible
     When the user clicks on "Send Money"
     And the user clicks on Send money to a new account

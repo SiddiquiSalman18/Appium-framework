@@ -16,6 +16,8 @@ public class HomePage {
     private String username="//android.widget.EditText[@resource-id=\"login_username|input\"]";
     private String Password="//android.widget.EditText[@resource-id=\"login_password|input\"]";
     private String Login="//android.widget.Button[@text=\"Log In\"]";
+    private String Location="//android.widget.TextView[@resource-id=\"com.android.permissioncontroller:id/permission_message\"]";
+    private String Allow="//android.widget.Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_foreground_only_button\"]";
     private String backarrow="//android.widget.Image[@resource-id=\"backArrow\"]";
     private String show="//android.widget.TextView[@text=\"SHOW BALANCE\"]";
     private String sendmoneybutton="//android.widget.Button[@text=\"Send Money To A New Account\"]";
@@ -52,6 +54,20 @@ public class HomePage {
 
         return ( AndroidDriverSetup.getAndroidDriver().findElement(By.xpath(Login)));
     }
+
+    public WebElement locationAlert(){
+
+        return(AndroidDriverSetup.getAndroidDriver().findElement(By.xpath(Location)));
+
+    }
+
+    public WebElement Allow(){
+
+        return(AndroidDriverSetup.getAndroidDriver().findElement(By.xpath(Allow)));
+
+    }
+
+
     public WebElement sendmoneybut(){
 
         return (AndroidDriverSetup.getAndroidDriver().findElement(By.xpath(sendmoneybutton)));
