@@ -8,7 +8,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
+import org.openqa.selenium.NoSuchElementException;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -46,8 +46,8 @@ public class HomeSteps extends Page {
     }
 
     @And("I click on loginbutton")
-    public void i_click_on_loginbutton(){
-         WebDriverWait wait = new WebDriverWait(AndroidDriverSetup.getAndroidDriver(), 20);
+    public void i_click_on_loginbutton() {
+        WebDriverWait wait = new WebDriverWait(AndroidDriverSetup.getAndroidDriver(), 20);
         //WebDriverWait wait = new WebDriverWait(driver, 20);  // 20 seconds wait time
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(getHomePage().logInButton()));
         // Assert that the login button is displayed
@@ -58,6 +58,26 @@ public class HomeSteps extends Page {
         loginButton.click();
 
     }
+
+        @And("Handle the location alert")
+        public void handlelocation () {
+
+            try{
+
+              getHomePage().locationAlert();
+              getHomePage().Allow().click();
+              System.out.println("Location permission allowed.");
+            }
+
+
+
+            catch (NoSuchElementException e ){
+
+                System.out.println("Location alert not displayed");
+
+            }
+
+        }
 
 
     @Then("Show balance text is visible")
